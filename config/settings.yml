@@ -32,3 +32,5 @@ user_controller:
   per_page: 10
 search_controller:
   per_page: 5
+download_pdf:
+  a4: "A4"

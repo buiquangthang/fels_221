@@ -1,5 +1,5 @@
 class SearchSuggestionsController < ApplicationController
   def index
-    render json: SearchSuggestion.terms_for params[:keywords]
+    render json: SearchSuggestion.terms_for(params[:keywords])
   end
 end

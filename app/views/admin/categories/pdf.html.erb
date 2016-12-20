@@ -1,6 +1,6 @@
 <div class="pdf_show">
   <h3 class="title"><%= category.name.upcase %></h3>
-  <h4 class="time"><%= Time.new, format: :date_month_year_concise %></h4>
+  <h4 class="time"><%= I18n.localize Date.today, format: :date_month_year_concise %></h4>
   <table class = "table">
     <thead>
       <tr>
@@ -14,7 +14,7 @@
         <tr>
           <td><%= question.id %></td>
           <td><%= question.content %></td>
-          <% question.feed.each do |a| %>
+          <% question.answers.get_answer_by(question.id).each do |a| %>
             <td><%= a.content %></td>
           <% end %>
         </tr>

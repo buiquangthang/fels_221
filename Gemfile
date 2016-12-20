@@ -14,11 +14,14 @@ gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.2"
 gem "jquery-rails"
-gem 'jquery-turbolinks'
+gem "jquery-turbolinks"
 gem "jbuilder", "~> 2.5"
 gem "config"
 gem "jquery-ui-rails"
 gem "pry-rails"
+gem "pdfkit"
+gem "render_anywhere"
+gem "wkhtmltopdf-binary"
 group :development, :test do
   gem "sqlite3",  "1.3.12"
   gem "byebug", platform: :mri

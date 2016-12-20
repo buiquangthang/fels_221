@@ -82,6 +82,9 @@ en:
   sharp: "#"
   follow: "Follow"
   unfollow: "Unfollow"
+  date:
+    formats:
+      date_month_year_concise: "%d-%m-%y"
   show_categories:
     history: "History"
     new_lesson: "New Lesson"

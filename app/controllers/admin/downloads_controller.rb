@@ -15,6 +15,7 @@ class Admin::DownloadsController < Admin::BaseController
       flash[:danger] = t "do_not_find_item"
       redirect_to :back
     end
+    @category
   end
 
   def category_pdf
