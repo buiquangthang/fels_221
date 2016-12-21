@@ -83,6 +83,7 @@ en:
   follow: "Follow"
   unfollow: "Unfollow"
   detail_user: "Detail User"
+  list_follow: "List followers"
   date:
     formats:
       date_month_year_concise: "%d-%m-%y"

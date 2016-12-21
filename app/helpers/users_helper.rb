@@ -9,4 +9,12 @@ module UsersHelper
   def search_user_by_id user_id
     User.find_by id: user_id
   end
+
+  def get_total_learn user_id
+    Learn.learned_ids_without_category(user_id).length
+  end
+
+  def get_total_words
+    Question.count
+  end
 end

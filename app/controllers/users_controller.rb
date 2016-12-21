@@ -32,12 +32,18 @@ class UsersController < ApplicationController
     end
   end
 
+   def following
+      @users = current_user.following.paginate page: params[:page],
+        per_page: Settings.user_controller.per_page
+      render "show_follow"
+    end
+
   private
   def load_user
     @user = User.find_by id: params[:id]
     unless @user
       flash[:danger] = t "do_not_find_user"
-      redirect_to request.referer
+      redirect_to root_url
     end
   end
 

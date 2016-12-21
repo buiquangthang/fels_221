@@ -14,7 +14,11 @@ Rails.application.routes.draw do
     resources :questions
   end
 
-  resources :users
+  resources :users do
+    member do
+      get :following
+    end
+  end
   resources :categories, only: :index do
     resources :lessons, only: [:index, :show, :new, :create]
   end

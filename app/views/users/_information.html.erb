@@ -3,7 +3,7 @@
     <div class = "box-body box-profile">
       <%= link_to gravatar_for(current_user), current_user %>
       <h3 class = "profile-username text-center"><%= @user.name%></h3>
-      <p class = "text-muted text-center">Software Engineer</p>
+      <p class = "text-muted text-center"><%= get_total_learn @user.id %> / <%= get_total_words %></p>
       <ul class = "list-group list-group-unbordered">
         <li class = "list-group-item">
           <b><%= t("followers") %></b>

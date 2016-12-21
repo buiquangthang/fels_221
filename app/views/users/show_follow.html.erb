@@ -1,5 +1,5 @@
-<% provide :title, t("detail_user") %>
-<section class = "content" id = "show_user">
+<% provide :title, t("list_follow") %>
+<section class = "content" id = "show_follow">
   <div class = "row">
     <%= render "users/information" %>
     <div class = "col-md-9">
@@ -7,13 +7,13 @@
         <ul class = "nav nav-tabs">
           <li class = "active">
             <a href = "#timeline" data-toggle = "tab">
-              <%= t "time_line" %>
+              <%= t "list_follow" %>
             </a>
           </li>
         </ul>
         <div class = "tab-content">
           <div class = "active tab-pane" id = "timeline">
-            <% if @activities.any? %>
+            <% if @users.any? %>
               <ol class = "timeline timeline-inverse">
                 <li class = "time-label">
                 <span class = "bg-red">
@@ -21,14 +21,14 @@
                 </span>
               </li>
               </ol>
-              <ol class = "timeline timeline-inverse" id = "activities">
-                  <%= render @activities %>
+              <ol class = "timeline timeline-inverse" id = "follows">
+                  <%= render @users %>
               </ol>
               <div id = "pag" class = "row text-center">
-                <%= will_paginate @activities %>
+                <%= will_paginate @users %>
               </div>
             <% else %>
-              <h1>You don't have any activity</h1>
+              <h1>You don't have any follow</h1>
             <% end %>
           </div>
         </div>

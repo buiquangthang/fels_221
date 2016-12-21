@@ -1,0 +1,13 @@
+<li>
+  <i class = "glyphicon glyphicon-lg">
+    <%= link_to gravatar_for(user), user %>
+  </i>
+  <div class = "timeline-item">
+    <span class = "time">
+      <i class = "fa fa-clock-o"></i>
+    </span>
+    <h3 class = "timeline-header no-border">
+    <%= link_to user.name, user %>
+    </h3>
+  </div>
+</li>

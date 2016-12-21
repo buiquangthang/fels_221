@@ -14,7 +14,7 @@ class Admin::UsersController < Admin::BaseController
   def destroy
     if @user.destroy
       flash[:success] = t "delete_success"
-      redirect_to admin_users_path, status: 303
+      redirect_to admin_users_path
     else
       flash[:danger] = t "delete_fail"
       redirect_to admin_users_url
@@ -23,10 +23,10 @@ class Admin::UsersController < Admin::BaseController
 
   private
   def load_user
-    @user = User.find_by id: params[:id]
+    @user = User.find_by id: params[:id] 
     unless @user
       flash[:danger] = t "do_not_find_user"
-      redirect_to :back
+      redirect_to root_url
     end
   end
 end

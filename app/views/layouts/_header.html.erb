@@ -7,7 +7,7 @@
           <li><%= link_to t("home"), user_path(current_user) %></li>
           <li><%= link_to t("search_word"), searches_path %></li>
           <li><%= link_to t("start_lesson"), categories_path %></li>
-          <li><%= link_to t("follow"), "#" %></li>
+          <li><%= link_to t("follow"), following_user_path(current_user) %></li>
           <% if current_user.admin? %>
             <%= render "layouts/admin" %>
           <% end %>

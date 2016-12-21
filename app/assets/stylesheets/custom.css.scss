@@ -298,7 +298,7 @@ span.picture {
 }
 
 input[type="radio"]{
-  width: inherit;
+  width: inherit !important
 }
 
 /* Lesson New */
@@ -322,4 +322,11 @@ input[type="radio"]{
 
 .user_info_profile {
   text-align: center;
+}
+
+#show_follow .timeline > li > .glyphicon {
+  width: 50px;
+  height: 50px;
+  left: 8px;
+  top: -4px;
 }
