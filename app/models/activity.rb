@@ -10,4 +10,6 @@ class Activity < ApplicationRecord
   enum action: [:follow, :unfollow, :had_learn]
 
   scope :order_by_date, -> {order created_at: :desc}
+
+  after_create_commit { SendmailJob.perform_later self }
 end
