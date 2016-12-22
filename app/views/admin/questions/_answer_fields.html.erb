@@ -1,6 +1,7 @@
 <div class = "duplicatable_nested_form_show_question col-md-8 col-md-offset-2">
   <%= f.label :content %>
-  <%= f.text_field :content, required: true, class: "form-control content_show_question" %>
+  <%= f.text_field :content, class: "form-control content_show_question",
+    placeholder: t("please_enter_content"),required: true %>
   <%= f.label :is_correct, t("is_correct") %>
   <%=radio_button_tag "select_answer", "is_correct", f.object.is_correct,
     class: "select_answer_input"%>

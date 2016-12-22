@@ -7,6 +7,7 @@ $(document).on('ready page:load', function(event) {
   $(document).on( 'click', '.show_category a.destroy_duplicate_nested_form', function(){
     $(this).prev('.valueDestroy').val('true');
     $(this).closest('.duplicatable_nested_form').slideUp().remove();
+    alert($(this).closest('.duplicatable_nested_form').find(".content_show_question").val());
     setLableCorrect();
     showAlertModal();
     setLableNumber();

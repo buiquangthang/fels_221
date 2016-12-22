@@ -1,10 +1,123 @@
 <% provide(:title, t("home")) %>
-<div class = "center jumbotron">
-  <h1><%= t "welcome" %></h1>
-  <h2>
-    <%= t "center" %>
-    <a href = "#"><%= t "app_name" %></a>
-    <%= t "app" %>
-  </h2>
-  <%= link_to t("signup"), signup_path, class: "btn btn-lg btn-primary" %>
+<!-- Header Carousel -->
+<header id="myCarousel" class="carousel slide">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <div class="fill" style="background-image:url('http://cdn.wallpapersafari.com/99/12/I4RMV7.jpg');"></div>
+      <div class="carousel-caption">
+        <h2>Caption 1</h2>
+      </div>
+    </div>
+    <div class="item">
+      <div class="fill" style="background-image:url('http://cdn.wallpapersafari.com/61/43/BAdpQx.png');"></div>
+      <div class="carousel-caption">
+        <h2>Caption 2</h2>
+      </div>
+    </div>
+    <div class="item">
+      <div class="fill" style="background-image:url('http://cdn.wallpapersafari.com/45/83/rIkYTc.jpg');"></div>
+      <div class="carousel-caption">
+        <h2>Caption 3</h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="icon-prev"></span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="icon-next"></span>
+  </a>
+</header>
+
+<div class="container"> 
+  <!-- Marketing Icons Section -->
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">
+        Welcome to E-Learning System
+      </h1>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4><i class="fa fa-fw fa-check"></i> Bootstrap v3.3.7</h4>
+        </div>
+        <div class="panel-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+          <a href="#" class="btn btn-default">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4><i class="fa fa-fw fa-gift"></i> Free &amp; Open Source</h4>
+        </div>
+        <div class="panel-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+          <a href="#" class="btn btn-default">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4><i class="fa fa-fw fa-compass"></i> Easy to Use</h4>
+        </div>
+        <div class="panel-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+          <a href="#" class="btn btn-default">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+
+  <!-- Portfolio Section -->
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 class="page-header">Portfolio Heading</h2>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <a href="#">
+        <img class="img-responsive img-portfolio img-hover" src="https://s3-eu-central-1.amazonaws.com/centaur-wp/fundstrategy/prod/content/uploads/2013/05/Japan-Mount-Fuji-Pagoda-700x450.jpg" alt="">
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <a href="#">
+        <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <a href="#">
+        <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <a href="portfolio-item.html">
+        <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <a href="portfolio-item.html">
+        <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+      </a>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <a href="portfolio-item.html">
+        <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
+      </a>
+    </div>
+  </div>
+  <!-- /.row -->
 </div>

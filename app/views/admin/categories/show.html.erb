@@ -1,16 +1,20 @@
 <% provide :title, t("details_category") %>
-<div class="row box box-primary">
-  <aside class = "col-md-3">
-    <section class = "user_info">
-      <%= render "shared/user_info" %>
-    </section>
-    <section class = "micropost_form">
-      <%= render "shared/category_form" %>
-      <%= link_to t("down_pdf"), admin_category_download_path(
-        @category, format: "pdf"), class: "download btn btn-info col-md-12" %>
-    </section>
-  </aside>
-  <div class = "show_category col-md-9">
+<div class="show_category row box box-primary">
+  <aside class = "profile col-md-4">
+    <div class = "box box-info">
+      <div class = "box-body" >
+        <section class = "user_info">
+          <%= render "shared/user_info" %>
+        </section>
+        <section class = "micropost_form">
+          <%= render "shared/category_form" %>
+          <%= link_to t("down_pdf"), admin_category_download_path(
+            @category, format: "pdf"), class: "download btn btn-info col-md-12" %>
+        </section>
+      </div>
+    </div>
+    </aside>
+  <div class = "show_category col-md-8">
     <h1 ><%= link_to @category.name, [:admin, @category] %></h1>
     <div class = "row">
       <button type = "button" class = "btn-question btn btn-success
@@ -62,7 +66,8 @@
               <div class = "form-group">
                 <%= f.hidden_field :category_id, value: @category.id %>
                 <%= f.label :content %><br>
-                <%= f.text_field :content, required: true , class: "form-control" %>
+                <%= f.text_field :content, placeholder: t("please_enter_content"),
+                  required: true, class: "show_question_content" %>
               </div>
               <h2 class = "number-answers"><%= t "number_answer" %></h2>
               <div id = "areaAnswer" class = "row"></div>
