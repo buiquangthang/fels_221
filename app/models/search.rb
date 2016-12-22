@@ -1,5 +1,6 @@
 class Search < ApplicationRecord
-  
+
+  enum learn: [:had_learn, :not_learn, :remember]
   def search_words user
     words = Question.all
     words = words.search_content keyword if keyword.present?
@@ -9,14 +10,16 @@ class Search < ApplicationRecord
     else
       learned_ids = Learn.learned_ids_without_category user.id
     end
-    had_learned learned_ids, learn, words
+    had_learned learned_ids, words, user.id
   end
 
-  def had_learned learned_ids, learn, words
-    if learn
+  def had_learned learned_ids, words, user_id
+    if self.remember?
       words = words.list_learned learned_ids
-    elsif learned_ids.any? && !learn 
+    elsif learned_ids.any? && self.not_learn? 
       words = words.question_not_learn learned_ids
+    elsif self.had_learn?
+      words = words.list_learned(Learn.had_learn_before(user_id)).uniq
     end
     words
   end
