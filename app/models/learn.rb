@@ -13,6 +13,17 @@ class Learn < ApplicationRecord
     self.add_question_id lessons
   end
 
+  scope :had_learn_before, -> user_id do
+    lessons = Lesson.of_user user_id
+    learned_ids = []
+    lessons.each do |lesson|
+      lesson.learns.each do |learn|
+        learned_ids << learn.question_id
+      end
+    end
+    learned_ids
+  end
+
   scope :add_question_id, -> lessons do
     learned_ids = []
     lessons.each do |lesson|
