@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       redirect_to signup_path
     else
       @activities = @user.activities.order_by_date.paginate page: params[:page],
-        per_page: Settings.user_controller.per_page
+      per_page: Settings.user_controller.per_page
     end
     respond_to do |format|
       format.html
@@ -32,11 +32,11 @@ class UsersController < ApplicationController
     end
   end
 
-   def following
-      @users = current_user.following.paginate page: params[:page],
-        per_page: Settings.user_controller.per_page
-      render "show_follow"
-    end
+  def following
+    @users = current_user.following.paginate page: params[:page],
+    per_page: Settings.user_controller.per_page
+    render "show_follow"
+  end
 
   private
   def load_user

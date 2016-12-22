@@ -5,6 +5,7 @@ $(document).on('ready page:load', function(event) {
   $(document).on('click', 'a.destroy_duplicate_nested_form_show-question[disabled!=disabled]', function(){
     $(this).prev().val('true');
     $(this).closest('.duplicatable_nested_form_show_question').slideUp();
+    $(this).closest('.duplicatable_nested_form_show_question').find('.content_show_question').removeAttr('required');
     setNumberAnswer();
     setLableNumber();
   });
@@ -17,7 +18,6 @@ $(document).on('ready page:load', function(event) {
       $(this).attr ('for', newLabel);
     });
     $(newNestedForm).find('input').each(function(){
-      $(this).val(' ');
       if($(this).attr('class') == 'value_detroy_show_question'){
         $(this).val('false');
       }
@@ -36,7 +36,9 @@ $(document).on('ready page:load', function(event) {
       $(this).attr ("name", newName);
     });
     $(newNestedForm).find('.destroy_duplicate_nested_form_show-question').removeAttr('disabled');
+    $(newNestedForm).find('.content_show_question').val(' ');
     $('#area_answer').append(newNestedForm);
+    $('.duplicatable_nested_form_show_question:last-child .content_show_question').val(null);
     setNumberAnswer();
     setLableNumber();
   });
