@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, except: [:create, :new]
   before_action :load_user, except: [:index, :new, :create]
 
   def new
@@ -29,6 +30,18 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else
+      render 'edit'
     end
   end
 

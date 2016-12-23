@@ -18,8 +18,9 @@ class Search < ApplicationRecord
       words = words.list_learned learned_ids
     elsif learned_ids.any? && self.not_learn? 
       words = words.question_not_learn learned_ids
+      words = words.where("id NOT IN (?)", Learn.had_learn_before(user_id, learned_ids))
     elsif self.had_learn?
-      words = words.list_learned(Learn.had_learn_before(user_id)).uniq
+      words = words.list_learned(Learn.had_learn_before(user_id, learned_ids)).uniq
     end
     words
   end

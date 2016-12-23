@@ -30,7 +30,7 @@ class LessonsController < ApplicationController
     @lesson = current_user.lessons.build lesson_params
     @lesson.category_id = params[:category_id]
     @lesson.learns.each do |learn|
-      learn.update is_correct: Learn.check_correct_answer(learn.answer_id)
+      learn.is_correct = Learn.check_correct_answer(learn.answer_id)
     end
     if @lesson.save
       score = @lesson.learns.is_correct.count
