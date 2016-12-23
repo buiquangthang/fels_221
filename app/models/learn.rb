@@ -13,15 +13,17 @@ class Learn < ApplicationRecord
     self.add_question_id lessons
   end
 
-  scope :had_learn_before, -> user_id do
+  scope :had_learn_before, -> user_id, learned_ids do
     lessons = Lesson.of_user user_id
-    learned_ids = []
+    not_learned_ids = []
     lessons.each do |lesson|
       lesson.learns.each do |learn|
-        learned_ids << learn.question_id
+        if !learned_ids.include?(learn.question_id)
+          not_learned_ids << learn.question_id
+        end
       end
     end
-    learned_ids
+    not_learned_ids
   end
 
   scope :add_question_id, -> lessons do
