@@ -6,6 +6,16 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def index
+    @user= current_user
+    @users = User.paginate page: params[:page],
+    per_page: Settings.user_controller.per_page
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   def show
     @relationship = current_user.active_relationships.find_by followed_id:params[:id]
     @user = User.find_by id: params[:id]
@@ -55,7 +65,7 @@ class UsersController < ApplicationController
   def load_user
     @user = User.find_by id: params[:id]
     unless @user
-      flash[:danger] = t "do_not_find_user"
+      flash.now[:danger] = t "do_not_find_user"
       redirect_to root_url
     end
   end

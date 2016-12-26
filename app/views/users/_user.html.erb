@@ -1,13 +1,23 @@
-<li>
-  <i class = "glyphicon glyphicon-lg">
-    <%= link_to gravatar_for(user), user %>
-  </i>
-  <div class = "timeline-item">
-    <span class = "time">
-      <i class = "fa fa-clock-o"></i>
-    </span>
-    <h3 class = "timeline-header no-border">
-    <%= link_to user.name, user %>
-    </h3>
-  </div>
-</li>
+<% set_user user%>
+<% if !current_user? @user %>
+  <li>
+    <i class = "glyphicon glyphicon-lg">
+      <%= link_to gravatar_for(user, size: 50), user %>
+    </i>
+    <div class = "timeline-item">
+      <span class = "time">
+        <i class = "fa fa-clock-o"></i>
+      </span>
+      <div class = "timeline-header no-border row" >
+        <div class="col-md-8">
+          <%= link_to user.id, user %>
+          <%= link_to user.name, user %>
+        </div>
+        <div class="col-md-4">
+            <% get_relationship user %>
+            <%= render 'follow_form' if logged_in?%>
+        </div>
+      </div>
+    </div>
+  </li>
+<% end %>

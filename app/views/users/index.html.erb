@@ -1,0 +1,37 @@
+<% provide :title, t("all_users") %>
+<section class = "content" id = "user_list_users">
+  <div class = "row">
+    <%= render "users/information" %>
+    <div class = "col-md-9">
+      <div class = "nav-tabs-custom">
+        <ul class = "nav nav-tabs">
+          <li class = "active">
+            <a href = "#timeline" data-toggle = "tab">
+              <%= t "all_user" %>
+            </a>
+          </li>
+        </ul>
+        <div class = "tab-content">
+          <div class = "active tab-pane" id = "timeline">
+            <% if @users.any? %>
+              <ol class = "timeline timeline-inverse">
+                <li class = "time-label">
+                <span class = "bg-red">
+                  <%= Date.today %>
+                </span>
+              </li>
+              </ol>
+              <ol class = "timeline timeline-inverse" id = "users">
+                  <%= render @users %>
+              </ol>
+              <div id = "pag" class = "row text-center">
+                <%= will_paginate @users %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -17,4 +17,12 @@ module UsersHelper
   def get_total_words
     Question.count
   end
+
+  def set_user user
+      @user = user
+  end
+
+  def get_relationship user
+    @relationship = current_user.active_relationships.find_by followed_id: user.id
+  end
 end
